@@ -1,0 +1,31 @@
+//find the largest prime factor of 600851475143
+//This program prints all prime factors
+
+public class ProjectEulerProblem3
+{
+   public static boolean isPrime(int n)
+   {
+      for (int i=2; i<Math.sqrt(n);i++)
+      {
+         if(n%i==0) //number has a factor other than 1 and itself
+           return false;
+      } 
+      return true;
+   
+   }
+
+
+   public static void main(String[] args)
+   {
+      long x = 600851475143L;
+      int largestFactor=1;
+      
+      for(int i=(int)Math.sqrt(x); i>2; i--)
+      {
+        if (x%i==0 && isPrime(i))
+          System.out.println(i); 
+      } 
+      
+   }
+
+}
