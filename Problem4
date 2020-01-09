@@ -1,0 +1,44 @@
+//find the largest palindrome number that is the product of two 3-digit numbers
+
+public class ProjectEulerProblem4
+{
+   public static boolean isPalindrome(int n)
+   {
+      int numDigits=0;
+      for(int i =n; i>0; i/=10)
+      {
+         numDigits++;
+      }
+      while(numDigits>0)
+      {
+         if (n%10 != n/(int)(Math.pow(10,numDigits-1)))
+            return false;
+         n=n%((int)Math.pow(10,numDigits-1));
+         n/=10;  
+         numDigits-=2;
+      }   
+         return true;
+      }   
+   
+
+   public static void main(String[] args)
+   {
+      int largestP=0;
+      int num=0;
+      for(int i=101; i<1000; i++)
+      {
+         for(int j=101; j<1000; j++)
+         {
+             num=i*j;
+             if (isPalindrome(num) && num>largestP)      
+               largestP=num;
+         }
+      }   
+   
+   
+   
+      System.out.println(largestP);
+   }
+
+
+}
