@@ -1,0 +1,30 @@
+//find the sum of all the even fibonacci numbers that are <4000000
+
+public class ProjectEulerProblem2
+{
+   public static int fib(int n)
+   {
+      if (n==1)
+         return 1;
+      if (n==2) 
+         return 2;
+         
+      return fib(n-1)+fib(n-2);      
+   }
+
+   public static void main(String[] args)
+   {
+      int fibNum=1;
+      int ans=0;
+      int counter = 1;
+      while(fibNum<4000000)
+      {
+         fibNum=fib(counter);
+         if (fibNum%2==0)
+            ans+=fibNum;
+         counter++;
+      }
+      
+      System.out.println(ans);
+   }
+}
